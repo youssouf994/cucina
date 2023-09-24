@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOLISTIC CENTER</title>
+    <!--<link rel="icon" href="{{url_for('static', filename='#')}}" type="image/x-icon" />CREARE APP ROUTE APPOSITA-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='templates.css') }}" />
+    <meta http-equiv="refresh" content="#">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</head>
+<body>
+    <div id="login_div" class="popup">
+        <div class="log">
+            <p>{{msg}}</p>
+            <form action="{{ url_for('accesso') }}" method="post" class="login">
+                <img src="#" class="little" /><br>
+                <label for="login1" class="etichette"><b>nome utente</b><input type="text" name="user" class="credenziali1" maxlength="255"></label><br>
+                <label for="login2" class="etichette"><b>Password</b><input type="password" name="pass" class="credenziali1" maxlength="255"></label><br>
+                <button type="submit">Login</button><br />
+            </form>
+            <button id="chiudi_div">Chiudi</button>
+        </div>
+    </div>
+
+    <div id="login_div2" class="popup">
+        <div class="log">
+            <form method="post" class="data_view" action="{{ url_for('crea_utente') }}">
+                <h2 class="titoli">Registrazione Cliente</h2>
+
+                <div class="colore">
+                    <label>Nome</label>
+                    <input type="text" name="nome" required>
+                </div>
+
+                <div class="colore">
+                    <label>Cognome</label>
+                    <input type="text" name="cognome" required>
+                </div>
+
+                <div class="colore">
+                    <label>Telefono</label>
+                    <input type="text" name="tel" required>
+                </div>
+
+                <div class="colore">
+                    <label>Password</label>
+                    <input type="password" name="pass" required>
+                </div>
+
+                <div class="colore">
+                    <label>Mail</label>
+                    <input type="email" name="mail" required>
+                </div>
+
+                <div class="colore">
+                    <label>Citta'</label>
+                    <input type="text" name="citt" required>
+                </div>
+
+
+
+                <div>
+                    <button class="bottone_generic" type="submit">Avvia<br>registrazione</button>
+                    <button class="bottone_generic" type="reset">Cancella</button>
+                </div>
+
+            </form>
+            <button id="chiudi_div2">Chiudi</button>
+        </div>
+    </div>
+    <div class="padre_video">
+        <h1>Video Lezione</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <video controls width="100%">
+                    <source src="{{ url_for('static', filename=link) }}" type="video/mp4">
+                    Il tuo browser non supporta la riproduzione video.
+                </video>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<head>
+    <title>HOLISTIC CENTER</title>
+    <!--<link rel="icon" href="{{url_for('static', filename='#')}}" type="image/x-icon" />CREARE APP ROUTE APPOSITA-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='templates.css') }}" />
+    <meta http-equiv="refresh" content="#">
+</head>
+
+<body class="body">
+    <header class="banner">
+        <a href="{{url_for('index')}}" class="link"><img src="{{url_for('static', filename='logo intero.png')}}" alt="Logo1" class="img" /></a>
+        <a href="{{url_for('landing')}}" class="link">CORSI</a>
+        <!--FARE FUNZIONE E VALORE IN DB PER PREFERITI--><a href="{{url_for('landing')}}" class="link"><img src="{{url_for('static', filename='preferito selezionato.png')}}" alt="preferiti" class="img2" /></a>
+        <a href="{{url_for('carrello')}}" class="link"><img src="{{url_for('static', filename='cart in corso.png')}}" alt="carrello" class="img2" /> <!--var jinja con tot preferiti--></a>
+        <a href="{{url_for('accesso')}}">LOGIN</a>
+        <a href="{{url_for('pag_registrazione')}}" class="link">+ SIGN UP</a>
+    </header>
+
+    
+</body>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HOLISTIC CENTER</title>
+    <!--<link rel="icon" href="{{url_for('static', filename='#')}}" type="image/x-icon" />CREARE APP ROUTE APPOSITA-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='templates.css') }}" />
+    <meta http-equiv="refresh" content="#">
+</head>
+
+<body class="body">
+    <header class="banner">
+        <a href="{{url_for('index')}}" class="link"><img src="{{url_for('static', filename='logo intero.png')}}" alt="Logo1" class="img" /></a>
+        <a href="{{url_for('landing')}}" class="link">CORSI</a>
+        <!--FARE FUNZIONE E VALORE IN DB PER PREFERITI--><a href="{{url_for('landing')}}" class="link"><img src="{{url_for('static', filename='preferito selezionato.png')}}" alt="preferiti" class="img2" /></a>
+        <a href="{{url_for('carrello')}}" class="link"><img src="{{url_for('static', filename='cart in corso.png')}}" alt="carrello" class="img2" /> <!--var jinja con tot preferiti--></a>
+        <a href="{{url_for('login')}}" class="link">LOGIN</a>
+        <a href="{{url_for('pag_registrazione')}}" class="link">+ SIGN UP</a>
+    </header>
+
+    <div id="login_div" class="popup">
+        <div class="log">
+            <p>{{msg}}</p>
+            <form action="{{ url_for('accesso') }}" method="post" class="login">
+                <img src="#" class="little" /><br>
+                <label for="login1" class="etichette"><b>nome utente</b><input type="text" name="user" class="credenziali1" maxlength="255"></label><br>
+                <label for="login2" class="etichette"><b>Password</b><input type="password" name="pass" class="credenziali1" maxlength="255"></label><br>
+                <button type="submit">Login</button><br />
+            </form>
+            <button id="chiudi_div">Chiudi</button>
+        </div>
+    </div>
+
+    <div id="login_div2" class="popup">
+        <div class="log2">
+            <form method="post" class="data_view" action="{{ url_for('crea_utente') }}">
+                <h2 class="titoli">Registrazione Cliente</h2>
+
+                <div class="colore">
+                    <label>Nome</label>
+                    <input type="text" name="nome" required>
+                </div>
+
+                <div class="colore">
+                    <label>Cognome</label>
+                    <input type="text" name="cognome" required>
+                </div>
+
+                <div class="colore">
+                    <label>Telefono</label>
+                    <input type="text" name="tel" required>
+                </div>
+
+                <div class="colore">
+                    <label>Password</label>
+                    <input type="password" name="pass" required>
+                </div>
+
+                <div class="colore">
+                    <label>Mail</label>
+                    <input type="email" name="mail" required>
+                </div>
+
+                <div class="colore">
+                    <label>Citta'</label>
+                    <input type="text" name="citt" required>
+                </div>
+
+
+
+                <div>
+                    <button class="bottone_generic" type="submit">Avvia<br>registrazione</button>
+                    <button class="bottone_generic" type="reset">Cancella</button>
+                </div>
+
+            </form>
+            <button id="chiudi_div2">Chiudi</button>
+        </div>
+    </div>
+
+    <div class="pannello">
+        <form method="post" class="data_view" action="{{ url_for('crea_utente') }}">
+            <h2 class="titoli">Registrazione Cliente</h2>
+
+            <div class="colore">
+                <label>Nome</label>
+                <input type="text" name="nome" required>
+            </div>
+
+            <div class="colore">
+                <label>Cognome</label>
+                <input type="text" name="cognome" required>
+            </div>
+
+            <div class="colore">
+                <label>Telefono</label>
+                <input type="text" name="tel" required>
+            </div>
+
+            <div class="colore">
+                <label>Password</label>
+                <input type="password" name="pass" required>
+            </div>
+
+            <div class="colore">
+                <label>Mail</label>
+                <input type="email" name="mail" required>
+            </div>
+
+            <div class="colore">
+                <label>Città</label>
+                <input type="text" name="citt" required>
+            </div>
+
+
+
+            <div>
+                <button class="bottone_generic" type="submit">Avvia<br>registrazione</button>
+                <button class="bottone_generic" type="reset">Cancella</button>
+            </div>
+
+        </form>
+    </div>
+</body>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<head>
+    <title>HOLISTIC CENTER</title>
+    <!--<link rel="icon" href="{{url_for('static', filename='#')}}" type="image/x-icon" />CREARE APP ROUTE APPOSITA-->
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='templates.css') }}" />
+    <meta http-equiv="refresh" content="#">
+</head>
+
+<body>
+    <div class="banner">
+
+    </div>
+    <div class="pannello">
+        <form method="post" class="data_view" action="{{url_for('nuovo_corso')}}">
+            <h2 class="titoli">Inserisci corso</h2>
+
+            <label>Nome corso</label>
+            <input type="text" name="nome" required>
+
+            <label>Modalita</label>
+            <input type="text" name="dalit" required>
+
+            <label>Ticket in vendita</label>
+            <input type="number" name="num" required />
+
+
+            <label>Prezzo</label>
+            <p>Usare il punto come separatore tra cifre</p>
+            <input type="text" name="prez" required>
+
+            <label>Descrizione corso</label>
+            <input type="text" name="descr" required>
+
+            <label>Link immagine</label>
+            <input type="text" name="img" required />
+
+            <button type="submit">Inserisci</button>
+        </form>
+
+
+        <form method="post" class="data_view" action="{{url_for('visualizza_creators')}}">
+            <h2 class="titoli">Modifica corso</h2>
+            <div class="data_view">
+                {% for corsi in corsi %}
+                <p> <strong>id:</strong> {{corsi[0]}}    <strong>nome:</strong> {{corsi[1]}}   <strong>prezzo:</strong> {{corsi[3]}} </p>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Carica corsi</button>
+        </form>
+
+        <form method="post" class="data_view" action="{{url_for('mod_corso')}}">
+            <div class="data_view">
+                <label>Id del corso da modificare</label>
+                <input type="number" name="quale" required />
+
+                <p>Selezionare un solo elemento</p>
+                <label>Nome</label>
+                <input type="checkbox" name="cod" value="co">
+
+                <label>Modalita'</label>
+                <input type="checkbox" name="cod" value="mod">
+
+                <label>Prezzo</label>
+                <input type="checkbox" name="cod" value="prez">
+
+                <label>Posti disponibili</label>
+                <input type="checkbox" name="cod" value="quanti">
+
+                <label>Descrizione</label>
+                <input type="checkbox" name="cod" value="desc">
+
+                <label>Immagine</label>
+                <input type="checkbox" name="cod" value="imge">
+
+                <label>Modifica desiderata</label>
+                <input type="text" name="nuovo" required>
+
+                <button type="submit">Esegui modifica</button>
+            </div>
+        </form>
+
+        <form method="post" class="data_view" action="{{url_for('visualizza_creators')}}">
+            <h2 class="titoli">Cancella Corso</h2>
+            <div class="data_view">
+                {% for corsi in corsi %}
+                <p> <strong>id:</strong> {{corsi[0]}}    <strong>nome:</strong> {{corsi[1]}}   <strong>prezzo:</strong> {{corsi[3]}} </p>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Carica corsi</button>
+        </form>
+
+        <form method="post" class="data_view" action="{{url_for('elimina')}}">
+            <label>Id del corso da eliminare</label>
+            <input type="number" name="elimino" required />
+            <button type="submit">Elimina corso</button>
+        </form>
+
+    </div>
+</body>
