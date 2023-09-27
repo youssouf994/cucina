@@ -6,20 +6,20 @@
     <!--<link rel="icon" href="{{url_for('static', filename='#')}}" type="image/x-icon" />CREARE APP ROUTE APPOSITA-->
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='templates.css') }}" />
     <meta http-equiv="refresh" content="#">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script src="{{url_for('static', filename='script.js')}}"></script>
 
 </head>
 
-<body class="body">
-    <header class="banner">
-        <a href="{{url_for('index')}}" class="link"><img src="{{url_for('static', filename='logo intero.png')}}" alt="Logo1" class="img" /></a>
-        <a href="{{url_for('landing')}}" class="link">CORSI</a>
+<body class="body2">
+    <header class="banner" style="color:orange;">
+        <a href="{{url_for('index')}}" class="link" style="color:orange;"><img src="{{url_for('static', filename='logo intero.png')}}" alt="Logo1" class="img" /></a>
+        <a href="{{url_for('landing')}}" class="link" style="color:orange;">CORSI</a>
         <!--FARE FUNZIONE E VALORE IN DB PER PREFERITI--><a href="{{url_for('landing')}}" class="link"><img src="{{url_for('static', filename='preferito selezionato.png')}}" alt="preferiti" class="img2" /></a>
-        <a href="{{url_for('vis_carrello')}}" class="link"><img src="{{url_for('static', filename='cart in corso.png')}}" alt="carrello" class="img2" /> <!--var jinja con tot preferiti--></a>
-        <p id="comparsa" class="link">O LOGIN</p>
-        <p id="comparsa2" class="link">+ SIGN UP</p>
+        <a href="{{url_for('vis_carrello')}}" class="link" style="color:orange;"><img src="{{url_for('static', filename='cart in corso.png')}}" alt="carrello" class="img2" /> <!--var jinja con tot preferiti--></a>
+        <p id="comparsa" class="link" style="color:orange;">O LOGIN</p>
+        <p id="comparsa2" class="link" style="color:orange;">+ SIGN UP</p>
     </header>
 
     <div id="login_div" class="popup">
@@ -83,26 +83,21 @@
     </div>
 
     <h2 class="header_L1">CORSI DISPONIBILI</h2>
-    <div class="vetrina">
-        <img src="{{url_for('static', filename='precedente.png')}}" class="indietro" />
-        <div class="vetrina_figlio">
-            {% for cors in corso_singolo %}
-            <div class="prodotto">
-
-                <!--<div class="prez_prod"><p>PREZZO: </p><strong>{{ cors[3] }} </strong></div>
-                <div class="mod_prd"><p>MODALITA': </p>{{ cors[2] }}</div>
-                <div class="quanti"><p>DISPONIBILITA': </p>{{ cors[4] }}</div>
-                <div class="descr"><p>DESCRRIZIONE: </p>{{ cors[5] }}</div>-->
-
-                <a href="{{url_for('panoramica', id_corso=cors[0])}}"><img src="{{ cors[6] }}" class="immag" /></a>
-                <div class="tit_prod"><strong>{{ cors[1] }}</strong></div>
+    <div class="vetrina2">
+        {% for cors in corso_singolo %}
+        <div class="prodotto2">
+            <a href="{{ url_for('panoramica', id_corso=cors[0]) }}">
+                <img src="{{ cors[6] }}" class="immagine-prodotto" />
+            </a>
+            <div class="dettagli-prodotto2">
+                <div class="titolo-prodotto"><strong>{{ cors[1] }}</strong></div>
+                <div class="modalita"><p>MODALITA': </p>{{ cors[2] }}</div>
+                <div class="descrizione"><p>DESCRIZIONE: </p>{{ cors[5] }}</div>
+                <div class="prezzo"><p>PREZZO: </p><strong>{{ cors[3] }} </strong></div>
+                <!--<div class="disponibilita"><p>DISPONIBILITA': </p>{{ cors[4] }}</div>-->
             </div>
-            {% endfor %}
         </div>
-        <img src="{{url_for('static', filename='prossimo.png')}}" class="avanti" />
-
-
-
-
+        {% endfor %}
     </div>
+
 </body>
