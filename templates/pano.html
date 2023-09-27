@@ -7,7 +7,7 @@
     <meta http-equiv="refresh" content="#">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{url_for('static', filename='script.js')}}"></script> 
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </head>
 <body class="body">
     <header class="banner">
@@ -80,18 +80,19 @@
             <button id="chiudi_div2">Chiudi</button>
         </div>
     </div>
+    <div class="pannello2">
+        <div class="img_pano">
+            <img src="{{ corso[6]}}" class="immag" />
+            <p>{{ corso[5] }}</p>
+            <a href="{{url_for('stre', id_video=corso[7])}}">Vai al video</a>
+        </div>
 
-    <div class="img_pano">
-        <img src="{{ corso[6]}}" class="immag" />
-        <p>{{ corso[5] }}</p>
-        <a href="{{url_for('stre', id_video=corso[7])}}">Vai al video</a>
-    </div>
-
-    <div>
-        <form action={{url_for('carrello', id_corso=corso[0])}} method="post">
-            <input type="number" name="quanti" />
-            <button type="submit">Inserisci nel carrello</button>
-        </form>
+        <div>
+            <form action={{url_for('carrello', id_corso=corso[0])}} method="post">
+                <input type="number" name="quanti" />
+                <button type="submit">Inserisci nel carrello</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
